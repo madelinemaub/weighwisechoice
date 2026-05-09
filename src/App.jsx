@@ -637,7 +637,7 @@ const HeroVisual = () => {
 const StartPage = ({ decisionTitle, setDecisionTitle, onNext, hasExistingDecisions, onViewDecisions }) => (
   <div style={{ maxWidth:1200, margin:'0 auto', padding:'40px 24px 48px' }}>
     {/* Two-column hero: copy + input left, visual right */}
-    <div className="anim-up" style={{ display:'flex', gap:56, alignItems:'flex-start', marginBottom:40 }}>
+    <div className="anim-up hero-row" style={{ display:'flex', gap:56, alignItems:'flex-start', marginBottom:40 }}>
       {/* Left: copy + input stacked */}
       <div style={{ flex:1, minWidth:0 }}>
         <h1 className="serif" style={{ fontSize:52, fontWeight:400, lineHeight:1.12, marginBottom:20 }}>
@@ -668,7 +668,7 @@ const StartPage = ({ decisionTitle, setDecisionTitle, onNext, hasExistingDecisio
         )}
       </div>
       {/* Right: visual */}
-      <div className="anim-up d2" style={{ width:420, flexShrink:0 }}>
+      <div className="anim-up d2 hero-visual" style={{ width:420, flexShrink:0 }}>
         <HeroVisual />
       </div>
     </div>
@@ -676,12 +676,19 @@ const StartPage = ({ decisionTitle, setDecisionTitle, onNext, hasExistingDecisio
     {/* Mobile: stack */}
     <style>{`
       @media (max-width: 900px) {
-        .anim-up > div[style*="gap: 56px"] {
+        .hero-row {
           flex-direction: column !important;
+          gap: 32px !important;
         }
-        .anim-up > div[style*="gap: 56px"] > div[style*="width: 420px"] {
+        .hero-visual {
           width: 100% !important;
           flex-shrink: 1 !important;
+        }
+        .hero-row h1 {
+          font-size: 36px !important;
+        }
+        .hero-row p {
+          font-size: 16px !important;
         }
       }
     `}</style>
